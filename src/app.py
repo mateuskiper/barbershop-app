@@ -1,5 +1,5 @@
 from flask import Flask
-from src import bootstrap, controllers, auth
+from src import bootstrap, routes, auth
 
 
 def create_app():
@@ -7,7 +7,7 @@ def create_app():
 
     #auth.init_app(app)
     bootstrap.init_app(app)
-    controllers.init_app(app)
+    routes.init_app(app)
 
     return app
 

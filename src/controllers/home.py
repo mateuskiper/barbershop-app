@@ -5,6 +5,9 @@ def index():
     products = {}
     return render_template("index.html", products=products)
 
+def login():
+    products = {}
+    return render_template("login.html", products=products)
 
 # def product(product_id):
 #     product = Product.query.filter_by(id=product_id).first() or abort(
