@@ -1,13 +1,11 @@
 from flask import abort, render_template
+from flask_login import login_required
 
 
 def index():
     products = {}
     return render_template("index.html", products=products)
 
-def login():
-    products = {}
-    return render_template("login.html", products=products)
 
 # def product(product_id):
 #     product = Product.query.filter_by(id=product_id).first() or abort(
