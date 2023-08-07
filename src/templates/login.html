@@ -12,37 +12,31 @@
     <div class="container" style="margin-top: 10rem;">
         <div class="row">
             <div class="col align-self-center" style="display: flex; justify-content: center; align-items: center;">
-                <img src={{ url_for('static', filename='barbershoplogo.png' ) }}
+                <img src={{ url_for("static", filename="barbershoplogo.png" ) }}
                     style="max-height:15rem; max-width:10rem;">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-center" style="display: flex; justify-content: center; align-items: center;">
                 <form action="/login" method="post">
-                    <h1 class="text-center">TrimScheduler</h1>
+                    <h1 class="text-center" style="margin-bottom: 16px;">TrimScheduler</h1>
                     {{ form.hidden_tag() }}
-                    <div class="Login-Header">
-                        <h4 class="mb-5">Login</h4>
-                    </div>
                     <p>
-                        {{ form.email.label }}<br>
                         {{ form.email(class="form-control mb-4") }}
                         {% for error in form.email.errors %}
                         <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
                     </p>
                     <p>
-                        {{ form.password.label }}<br>
                         {{ form.password(class="form-control mb-4") }}
                         {% for error in form.password.errors %}
                         <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
                     </p>
-                    <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-                    <div class="btn btn-secondary btn-block">
-                        {{ form.submit(class="btn btn-primary mt-3") }}
-                    </div>
-                    <button type="submit" class="btn btn-secondary btn-block">Registrat</button>
+                    <p>
+                        {{ form.submit(class="btn btn-secondary btn-block") }}
+                    </p>
+                    <button type="submit" class="btn btn-secondary btn-block" disabled>Registrar</button>
                 </form>
             </div>
         </div>
