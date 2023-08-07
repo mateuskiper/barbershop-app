@@ -4,8 +4,8 @@ from flask import Flask
 from flask_login import LoginManager
 
 from src import bootstrap, database
-from src.controllers.auth import auth
-from src.controllers.tasks import tasks
+from src.views.auth import auth
+from src.views.tasks import tasks
 from src.models.appointments import Appointment
 from src.models.barbershops import Barbershop
 from src.models.services import Service
@@ -36,7 +36,7 @@ login_manager.login_view = "auth.login"
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(user_id)
+    return database.db.session.query(User).filter(User.email == user_id).first()
 
 
 app.register_blueprint(auth)

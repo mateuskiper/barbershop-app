@@ -1,5 +1,5 @@
 from flask import Blueprint
-from src.controllers.tasks.home import index
+from src.views.tasks.home import home
 
 tasks = Blueprint("tasks", __name__, template_folder="templates")
-tasks.add_url_rule("/", view_func=index)
+tasks.add_url_rule("/", view_func=home)
