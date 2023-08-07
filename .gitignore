@@ -161,3 +161,4 @@ cython_debug/
 
 # Dev databases
 *.db
+*.ipynb
