@@ -12,8 +12,8 @@ class AppointmentStatus(enum.Enum):
 class Appointment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     time = db.Column(db.DateTime)
-    barbershop_id = db.Column(db.Integer, db.ForeignKey("barbershop.id"))
-    barbershop_name = db.Column(db.String(140), db.ForeignKey("barbershop.name"))
+    barber_id = db.Column(db.Integer, db.ForeignKey("barber.id"))
+    barber_name = db.Column(db.String(140), db.ForeignKey("barber.name"))
     service_id = db.Column(db.Integer, db.ForeignKey("service.id"))
     service_name = db.Column(db.String(140), db.ForeignKey("service.name"))
     status = db.Column(db.Enum(AppointmentStatus))

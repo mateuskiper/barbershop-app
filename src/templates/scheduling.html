@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TrimScheduler - Início</title>
+    <title>TrimScheduler - Barbeiros</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -35,37 +35,20 @@
         </div>
     </nav>
     <div class="container">
-        <div class="col align-self-center" style="display: flex; justify-content: center; align-items: center;">
-            <div class="card mb-3" style="max-width: 600px; height: 10rem; margin-top: 16px;">
-                <div class="row no-gutters" style="height: 100%;">
-                    <div class="col-md-4">
-                        <img src={{ url_for('static', filename='barber-shop-5212059_1280.jpg' ) }}
-                            style="height: 100%; width:100%;">
+        <div class="card mt-5">
+            <div class="card-body">
+                <h1 class="card-title">Agende seu atendimento</h1>
+                <h3 class="card-subtitle mb-4">Escolha o melhor horário para você</h3>
+                <form action="/scheduled" method="post">
+                    <div class="form-group">
+                        <label for="datetime">Selecione uma data e hora:</label>
+                        <input type="datetime-local" class="form-control" id="datetime" name="datetime">
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Pesquisar barbearia</h5>
-                            <p class="card-text">Busque por barbearias e faça um agendamento.</p>
-                            <a href="{{ url_for('tasks.barbershops') }}" class="stretched-link"></a>
-                        </div>
+                    <div class="buttons d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
+                        <button type="submit" class="btn btn-primary">Agendar</button>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col align-self-center" style="display: flex; justify-content: center; align-items: center;">
-            <div class="card mb-3" style="max-width: 600px; height: 10rem;">
-                <div class="row no-gutters" style="height: 100%;">
-                    <div class="col-md-4">
-                        <img src={{ url_for('static', filename='barber-1453064_640.jpg' ) }}
-                            style="height: 100%; width:100%;">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Ver meus agendamentos</h5>
-                            <p class="card-text">Visualize sua agenda.</p>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
