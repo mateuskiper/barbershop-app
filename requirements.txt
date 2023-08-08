@@ -3,3 +3,4 @@ Flask-Bootstrap==3.3.7.1
 Flask-Login==0.6.2
 Flask-SQLAlchemy==3.0.5
 pytest==7.4.0
+flask_wtf==1.1.1
