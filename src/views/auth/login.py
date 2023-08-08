@@ -3,8 +3,9 @@ from flask_login import login_user
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField
 
-from src.database import db
-from src.models.users import User
+from src.services.users_repository import UserRepository
+
+user_repo = UserRepository()
 
 
 class LoginForm(FlaskForm):
@@ -16,12 +17,11 @@ class LoginForm(FlaskForm):
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = db.session.query(User).filter(User.email == form.email.data).first()
+        user = user_repo.get_by_email(form.email.data)
         if user:
             if user.check_password(form.password.data):
                 user.authenticated = True
-                db.session.add(user)
-                db.session.commit()
+                user_repo.add_to_session(user)
                 login_user(user, remember=True)
 
                 return redirect(url_for("tasks.home"))

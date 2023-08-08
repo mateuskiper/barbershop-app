@@ -18,17 +18,18 @@ def create_app():
     SECRET_KEY = os.urandom(32)
     app.config["SECRET_KEY"] = SECRET_KEY
 
-    database.init_app(app)
     bootstrap.init_app(app)
+    database.init_app(app)
+    with app.app_context():
+        database.db.create_all()
+
+    app.register_blueprint(auth)
+    app.register_blueprint(tasks)
 
     return app
 
 
 app = create_app()
-
-# TODO
-with app.app_context():
-    database.db.create_all()
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -40,9 +41,5 @@ def load_user(user_id):
     return database.db.session.query(User).filter(User.email == user_id).first()
 
 
-app.register_blueprint(auth)
-app.register_blueprint(tasks)
-
-
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=False)
