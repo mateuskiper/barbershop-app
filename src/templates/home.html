@@ -36,8 +36,8 @@
     </nav>
     <div class="container">
         <div class="col align-self-center" style="display: flex; justify-content: center; align-items: center;">
-            <div class="card mb-3" style="max-width: 600px; height: 10rem; margin-top: 16px;">
-                <div class="row no-gutters" style="height: 100%;">
+            <div class="card mb-3" style="width: 40rem; height: 10rem; margin-top: 16px;">
+                <div class="row no-gutters" style="height: 100%; width:100%;">
                     <div class="col-md-4">
                         <img src={{ url_for('static', filename='barber-shop-5212059_1280.jpg' ) }}
                             style="height: 100%; width:100%;">
@@ -53,8 +53,8 @@
             </div>
         </div>
         <div class="col align-self-center" style="display: flex; justify-content: center; align-items: center;">
-            <div class="card mb-3" style="max-width: 600px; height: 10rem;">
-                <div class="row no-gutters" style="height: 100%;">
+            <div class="card mb-3" style="width: 40rem; height: 10rem;">
+                <div class="row no-gutters" style="height: 100%; width:100%;">
                     <div class="col-md-4">
                         <img src={{ url_for('static', filename='barber-1453064_640.jpg' ) }}
                             style="height: 100%; width:100%;">
@@ -63,6 +63,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Ver meus agendamentos</h5>
                             <p class="card-text">Visualize sua agenda.</p>
+                            <a href="{{ url_for('tasks.home') }}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>

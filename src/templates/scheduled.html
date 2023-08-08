@@ -36,19 +36,11 @@
     </nav>
     <div class="container">
         <div class="col align-self-center" style="display: flex; justify-content: center; align-items: center;">
-            <div class="card mb-3" style="width: 40rem; height: 20rem; margin-top: 16px; margin-bottom: 0px !important; padding: 5rem;">
-                <h3 class="card-title">Agende seu atendimento</h3>
-                <h5 class="card-subtitle mb-2">Escolha o melhor horário para você</h5>
-                <form action="/scheduled" method="post">
-                    <div class="form-group">
-                        <label for="schedule_datetime">Selecione uma data e hora:</label>
-                        <input type="datetime-local" class="form-control" id="schedule_datetime" name="schedule_datetime" value="2023-10-01T19:30">
-                    </div>
-                    <div class="buttons d-flex justify-content-between">
-                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
-                        <button type="submit" class="btn btn-success">Agendar</button>
-                    </div>
-                </form>
+            <div class="card mb-3" style="width: 40rem; height: 8rem; margin-top: 16px; margin-bottom: 0px !important;">
+                <div class="card-body">
+                    <h5 class="card-title">Agendamento criado com sucesso para {{ schedule_datetime }}!</h5>
+                    <a href="{{ url_for('tasks.home') }}" class="btn btn-secondary">Voltar ao início</a>
+                </div>
             </div>
         </div>
     </div>

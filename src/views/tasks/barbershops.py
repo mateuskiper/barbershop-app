@@ -31,5 +31,5 @@ def scheduling(id: int, barber_id: int):
 
 @login_required
 def scheduled():
-    datetime = request.form["datetime"]
-    return "Agendamento efetuado para " + datetime
+    schedule_datetime = request.form["schedule_datetime"]
+    return render_template("scheduled.html", schedule_datetime=schedule_datetime)
