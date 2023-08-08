@@ -19,8 +19,6 @@ def create_app():
 
     bootstrap.init_app(app)
     database.init_app(app)
-    with app.app_context():
-        database.db.create_all()
 
     app.register_blueprint(auth)
     app.register_blueprint(tasks)
