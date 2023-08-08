@@ -1,5 +1,7 @@
 import enum
 
+from sqlalchemy.types import ARRAY
+
 from src.database import db
 
 
@@ -14,6 +16,5 @@ class Appointment(db.Model):
     time = db.Column(db.DateTime)
     barber_id = db.Column(db.Integer, db.ForeignKey("barber.id"))
     barber_name = db.Column(db.String(140), db.ForeignKey("barber.name"))
-    service_id = db.Column(db.Integer, db.ForeignKey("service.id"))
-    service_name = db.Column(db.String(140), db.ForeignKey("service.name"))
+    services = db.Column(ARRAY(db.Integer))
     status = db.Column(db.Enum(AppointmentStatus))

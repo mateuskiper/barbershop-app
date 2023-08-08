@@ -1,10 +1,11 @@
 from flask import abort, render_template, request
 from flask_login import login_required
 
-from src.services import barbers_repository, barbershops_repository
+from src.services import barbers_repository, barbershops_repository, services_repository
 
 barbers_repo = barbers_repository.BarberRepository()
 barbershops_repo = barbershops_repository.BarbershopRepository()
+services_repo = services_repository.ServiceRepository()
 
 
 @login_required
@@ -26,7 +27,7 @@ def barbers(id: int):
 @login_required
 def scheduling(id: int, barber_id: int):
     barber = barbers_repo.get(barber_id)
-    barber_services = barbers_repo.get_services(barber_id)
+    barber_services = services_repo.get(barber.services)
     barbershop = barbershops_repo.get(id)
 
     return render_template(

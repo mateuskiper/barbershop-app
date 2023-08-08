@@ -4,7 +4,6 @@ from flask import Flask
 from flask_login import LoginManager
 
 from src import bootstrap, database
-from src.models.appointments import Appointment
 from src.models.barbers import Barber
 from src.models.barbershops import Barbershop
 from src.models.services import Service
