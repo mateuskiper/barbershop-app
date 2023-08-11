@@ -17,16 +17,26 @@ def barbershops():
 
 @login_required
 def barbers(id: int):
-    barbers = barbers_repo.get_by_barbershop(id) or abort(
+    barbers_raw = barbers_repo.get_by_barbershop(id) or abort(
         404, "Nenhum barbeiro encontrado."
     )
+
+    barbers = []
+    for b in barbers_raw:
+        barber = b[0]
+        barber.name = b[1].name
+        barbers.append(barber)
+
+        del barber
 
     return render_template("barbers.html", barbers=barbers)
 
 
 @login_required
 def scheduling(id: int, barber_id: int):
-    barber = barbers_repo.get(barber_id)
+    barber_raw = barbers_repo.get(barber_id)
+    barber = barber_raw[0]
+    barber.name = barber_raw[1].name
     barber_services = services_repo.get(barber.services)
     barbershop = barbershops_repo.get(id)
 
